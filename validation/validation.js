@@ -24,17 +24,24 @@ const formSchema = Joi.object({
   }),
   type_of_organization: Joi.string()
     .valid(
-      "Proprietorship",
-      "Partnership",
-      "Hindu Undivided Family (HUF)",
-      "Company",
-      "Limited Liability Partnership"
+      "1. Proprietary / एकल स्वामित्व",
+      "2. Hindu Undivided Family / हिंदू अविभाजित परिवार (एचयूएफ)",
+      "3. Partnership / पार्टनरशिप",
+      "4. Co-Operative / सहकारी",
+      "5. Private Limited Company / प्राइवेट लिमिटेड कंपनी",
+      "6. Public Limited Company / पब्लिक लिमिटेड कंपनी",
+      "7. Self Help Group / स्वयं सहायता समूह",
+      "8. Limited Liability Partenership / सीमित दायित्व भागीदारी",
+      "9. Society / सोसाईटी",
+      "10. Trust / ट्रस्ट",
+      "11. Others / अन्य"
     )
     .required()
     .messages({
       "any.only": "Invalid type of organization selected.",
       "string.empty": "Type of organization is required.",
     }),
+
   pin_code: Joi.string()
     .pattern(/^[0-9]{6}$/)
     .required()
